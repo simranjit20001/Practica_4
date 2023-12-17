@@ -852,10 +852,11 @@ void printResultsCSV(unsigned int *memSizes, double *bandwidths, unsigned int co
     unsigned int i;
     double dSeconds = 0.0;
 
+    printf("Type,Bandwidth(MB/s),Time(sec),Size(bytes),NumDevs\n");
+
     for (i = 0; i < count; i++) {
         dSeconds = (double)memSizes[i] / (bandwidths[i] * (double)(1<<20));
-        printf("bandwidthTest-%s, Bandwidth = %.1f MB/s, Time = %.5f s, Size = %u bytes, NumDevsUsed = %d\n",
-               sConfig.c_str(), bandwidths[i], dSeconds, memSizes[i], iNumDevs);
+        printf("%s,%.1f,%.5f,%u,%d\n", sConfig.c_str(), bandwidths[i], dSeconds, memSizes[i], iNumDevs);
     }
 }
 

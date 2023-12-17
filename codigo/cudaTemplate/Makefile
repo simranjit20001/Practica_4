@@ -7,7 +7,7 @@ CUDA_INC = -I$(CUDA_DIR)/include
 CUDA_INC_COMMON = -I../Common
 
 C_FLAGS = -O3
-NVCC_FLAGS = -m64
+NVCC_FLAGS = -m64 --std=c++11
 LD_LIBS	= -lcudart -lm
 GENCODE_FLAGS = -Wno-deprecated-gpu-targets
 

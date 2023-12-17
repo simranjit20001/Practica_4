@@ -9,13 +9,13 @@ __global__ void foo(int *gid_d)
     extern __shared__ int shared_mem[];
 
 	// size of the block
-    int blockSize = blockDim.x * blockDim.y;
+    int blockSize = blockDim.x * blockDim.y; 
 
     // global thread ID in thread block
-    int tidb = (blockDim.x * threadIdx.y + threadIdx.x);
+    int tidb = (blockDim.x * threadIdx.y + threadIdx.x); 
 
     // global thread ID in grid
-    int tidg = (blockIdx.y * gridDim.x * blockSize + blockIdx.x * blockSize + tidb);
+    int tidg = (blockIdx.y * gridDim.x * blockSize + blockIdx.x * blockSize + tidb); 
 
     shared_mem[tidb] = gid_d[tidg];
     
@@ -28,3 +28,4 @@ __global__ void foo(int *gid_d)
 
     gid_d[tidg] = shared_mem[tidb];
 }
+

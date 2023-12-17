@@ -74,6 +74,8 @@ int main(int argc, char *argv[])
     dim3 block(dim_block_x, dim_block_y);
 
     // execute the kernel
+    printf("block.x = %d, block.y = %d\n", block.x, block.z);
+    printf("dim_block_x = %d, dim_block_y = %d\n", dim_block_x, dim_block_y);
     shared_mem_size = block.x * block.y * sizeof(int);
     assert(shared_mem_size <= SH_MEM_SIZE);
 	
